@@ -1,0 +1,38 @@
+<html>
+<head>
+<title> Inscrição Semanal </title>
+</head>
+<body bgcolor="#cccccc">
+<font face="Arial">
+<h4 align=center>Inscrição Semanal</h4>
+<p>Por favor preencha os campos abaixo para se inscrever:
+<hr>
+	<form action="/Agrad.htm" method="get">
+		<input type=hidden name="inscrição" value="semanal">
+		<input type=hidden name="nextpage" value="Agrad.htm">
+	
+	Nome:<br>
+	<input type="text" name="nome" size=15>
+	<hr>
+
+	Sobrenome:<br>
+	<input type="text" name="sobrenome" size=15>
+	<hr>
+
+	Data de Nasc.:<br>
+	<input type="text" name="nasc" size=10> <i>(DD/MM/AAAA)</i>
+	<hr>
+	
+	Endereço de e-mail:<br>
+	<input type="text" name="email" size=30> <i>(usuário@provedor.com.br)</i>
+	<hr>
+	
+	
+	<input type="checkbox" name="confirma" checked> Sim, desejo confirmação por e-mail!
+	<hr>	
+	<center>
+		<input type="submit" value="Enviar"><input type="reset" value="Apagar">
+	</center>
+</form>
+</body>
+</html>
