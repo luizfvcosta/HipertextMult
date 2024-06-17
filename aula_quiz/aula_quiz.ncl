@@ -58,9 +58,7 @@
 	  
 	  <connectorBase>
 		<importBase  alias="conn"  documentURI="connBaseAula.ncl" />
-		
       </connectorBase>
-	  
 	  
    </head>
 
@@ -98,20 +96,19 @@
 				<bind component="videoAbertura" role="onEnd"/>
 				<bind component="imgPularIntro" role="stop"/>
 			</link>
-			
-		
+			<!-- 
 			<link xconnector="conn#onKeySelectionStop">
 				<bind component="videoAbertura" role="onSelection">
 					<bindParam name="aKey" value="GREEN"/>
 				</bind>
 				<bind component="videoAbertura" role="stop"/>
 			</link>
-			
+			-->
 				
 		</context>
 		
 		<media id="acao" src="media/acao.png" descriptor="dcaptura" >
-			<area id="escolha" begin="1s" end="15s"/>
+			<area id="escolha" begin="1s" end="31s"/>
 		</media>
 		<media id="menuReptir" src="media/op_repitir.gif" descriptor="dMenuReptir" />
 		<media id="menuRevisao" src="media/op_revisao.gif" descriptor="dMenuRevisao" /> 
@@ -119,6 +116,8 @@
 		<media id="menuSair" src="media/op_sair.gif" descriptor="dMenuSair" />
 		
 		<media id="qrcode" src="media/qrcode.png" descriptor="dvode" />
+		<media id="videoFinal" src="media/video_raiz.mp4" descriptor="dVideoAula" />
+		
 		
 		<media id="clicks" src="clicks.lua" descriptor="dResult" >
 				<area id="print" label="fim"/>
@@ -166,7 +165,7 @@
 		
 		<link  xconnector="conn#onSelectionStartStop">
 				<bind component="menuReptir"  role="onSelection" /> 
-				<bind role="start" component="ctxAula"/>
+				<bind role="start" component="videoFinal"/>
 				<bind component="acao" role="stop"/>
 				<bind component="menuReptir"  role="stop"/>
 				<bind component="menuRevisao" role="stop"/>
@@ -205,6 +204,10 @@
 				<bind component="clicks" role="stop"/>
 		</link>
 		
+		
+		
+		<!-- mudar aqui -->
+		
 		<link  xconnector="conn#onEndStopStart">
 				<bind role="onEnd" component="acao" interface="escolha" />
 				<bind component="acao" role="stop"/>
@@ -213,7 +216,7 @@
 				<bind component="menuCompra" role="stop"/>
 				<bind component="menuSair" role="stop"/>
 				<bind component="clicks" role="stop"/>
-				<bind role="start" component="ctxAula" />
+				<bind role="start" component="videoFinal" />
 		</link>
 		
 		<!-- parte interativa quiz -->
@@ -390,18 +393,6 @@
 					<bindParam name="aDelay" value="3s"/>
 				</bind>
 		</link>
-		
-		<!--
-		<link xconnector="onBeginStop_delayStart">
-			<bind role="onBegin" component="clicks" interface="printe" />
-			<bind role="stop" component="clicks" >
-					<bindParam name="aDelay" value="3s"/>
-			</bind>
-			<bind component="acao" role="start" >
-					<bindParam name="aDelay" value="3s"/>
-			</bind>
-		</link>
-		-->
-		
+				
    </body>
 </ncl>
